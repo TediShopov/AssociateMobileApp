@@ -6,13 +6,11 @@ namespace Associate.Models.Interfaces
 {
     public interface IPlayer
     {
+        Dictionary<IStage, List<string>> GuessedWordsPerStage { get; set; }
         string Name { get; set; }
-        Dictionary<int,int> Points { get; set; }
 
-        void AddPointsOnStage();
-
-
-
-
+        List<string> CreatedWords { get; }
+        void AddCreatedWord(string words);
+        void GuessWordOnStage(string word, IStage stage);
     }
 }

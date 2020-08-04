@@ -7,8 +7,7 @@ namespace Associate.Models.Interfaces
     public interface ITeam
     {
         List<IPlayer> Members { get; set; }
-        int TotalPoints { get; }
-
+        int GuessedWordsForStage(IStage stage);
 
     }
 }

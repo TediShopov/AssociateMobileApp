@@ -9,5 +9,14 @@ namespace Associate.Models.Interfaces
     {
         TimeSpan TimeLeft { get; }
         Action OnEachTick { get; set; }
+
+        void StartTimer();
+        void StopTimer();
+
+
+        bool IsOver { get; }
+
+        bool IsStarted { get; }
+       
     }
 }

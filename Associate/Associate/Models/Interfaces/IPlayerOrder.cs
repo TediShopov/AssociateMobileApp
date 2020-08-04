@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Associate.Models.Interfaces
 {
-    class IPlayerOrder
+    public interface IPlayerOrder
     {
+        IPlayer GoToNextPlayer();
+        IPlayer PeekNextPlayer();
+
+        Queue<IPlayer> Order { get; }
     }
 }
