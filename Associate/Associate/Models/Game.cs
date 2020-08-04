@@ -8,20 +8,36 @@ namespace Associate.Models
 {
     public class Game : IGame
     {
+        private IStage currentStage;
+        private bool isFinished;
+        private int currentStageIndex;
         public Game()
         {
             this.currentStageIndex = -1;
             this.isFinished = false;
             this.Stages = new List<IStage>();
             this.Teams = new List<ITeam>();
+            this.winningCondition =new MostWordsGuessedWinningCondition(this.Stages);
             
         }
-        private IStage currentStage;
+        public Game(IWinningCondition winningCondition)
+        {
+            this.currentStageIndex = -1;
+            this.isFinished = false;
+            this.Stages = new List<IStage>();
+            this.Teams = new List<ITeam>();
+            this.winningCondition = winningCondition;
+
+        }
+
         public IStage CurrentStage { get { return currentStage; } }
+        public IWinningCondition winningCondition { get; set; }
 
         public List<IStage> Stages { get; set; }
 
         public List<ITeam> Teams { get; set; }
+
+        public bool IsFinished { get { return isFinished; } }
 
         public int NumberOfStages
         {
@@ -50,17 +66,10 @@ namespace Associate.Models
                 }
             }
         }
-
-        private bool isFinished;
-        public bool IsFinished { get; }
-
-        private int currentStageIndex;
         public int CurrentStageNumber { get { return this.currentStageIndex + 1; } }
 
-        public ITeam GetWinner()
-        {
-            throw new NotImplementedException();
-        }
+       
+
 
         public void GoToNextStage()
         {

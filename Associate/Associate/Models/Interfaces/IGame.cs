@@ -7,7 +7,7 @@ namespace Associate.Models.Interfaces
     public interface IGame
     {
         IStage CurrentStage { get; }
-        ITeam GetWinner();
+        IWinningCondition winningCondition { get; set; }
         List<IStage> Stages { get; }
         List<ITeam> Teams { get; set; }
 
