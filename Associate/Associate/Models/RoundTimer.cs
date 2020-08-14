@@ -49,7 +49,7 @@ namespace Associate.Models
             {
                 this.timeLeft = this.TimeLeft.Subtract(new TimeSpan(0, 0, 1));
 
-                if (this.OnEachTick == null)
+                if (this.OnEachTick != null)
                 {
                     this.OnEachTick.Invoke();
                 }

@@ -46,8 +46,9 @@ namespace Associate.Models
         }
         public void InitializePlayerOrder()
         {
+            this.playerOrder = new Queue<IPlayer>();
             int playerListIndex = 0;
-            while (playerListIndex==this.teamOrder.Count-1)
+            while (playerListIndex!=this.teamOrder[0].Members.Count)
             {
                 foreach (var team in this.teamOrder)
                 {

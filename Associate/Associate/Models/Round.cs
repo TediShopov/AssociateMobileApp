@@ -13,6 +13,7 @@ namespace Associate.Models
         {
             this.currentStage = stage;
             this.CurrentPlayer = player;
+            player.PlayerParticipateInStage(stage);
             this.RoundTimer = new RoundTimer(timePerPlayer);
            
         }
