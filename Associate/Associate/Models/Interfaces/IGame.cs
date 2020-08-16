@@ -8,6 +8,8 @@ namespace Associate.Models.Interfaces
     {
         IStage CurrentStage { get; }
         IWinningCondition winningCondition { get; set; }
+
+        //Stage might be IEnumrator<Stage> -- MoveNext() method and current;
         List<IStage> Stages { get; }
         List<ITeam> Teams { get; set; }
 

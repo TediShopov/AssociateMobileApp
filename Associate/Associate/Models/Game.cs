@@ -11,18 +11,20 @@ namespace Associate.Models
         private IStage currentStage;
         private bool isFinished;
         private int currentStageIndex;
+        IEnumerator<IStage> stageEnumerator;
         public Game()
         {
             this.currentStageIndex = -1;
             this.isFinished = false;
             this.Stages = new List<IStage>();
+            this.stageEnumerator = this.Stages.GetEnumerator();
             this.Teams = new List<ITeam>();
             this.winningCondition =new MostWordsGuessedWinningCondition(this.Stages);
             
         }
         public Game(IWinningCondition winningCondition)
         {
-            this.currentStageIndex = -1;
+            
             this.isFinished = false;
             this.Stages = new List<IStage>();
             this.Teams = new List<ITeam>();
@@ -30,7 +32,7 @@ namespace Associate.Models
 
         }
 
-        public IStage CurrentStage { get { return currentStage; } }
+        public IStage CurrentStage { get { return this.Stages[currentStageIndex]; } }
         public IWinningCondition winningCondition { get; set; }
 
         public List<IStage> Stages { get; set; }
@@ -78,10 +80,17 @@ namespace Associate.Models
                 this.currentStageIndex++;
                 this.currentStage = this.Stages[currentStageIndex];
             }
-            else 
+            else
             {
                 this.isFinished = true;
-            }      
+            }
+
+            //With IEnumerator()
+            //if (this.Stages.GetEnumerator().MoveNext()==false)
+            //{
+            //    this.isFinished = true;
+            //}
+
         }
     }
 }
