@@ -1,4 +1,5 @@
-﻿using Associate.Models.Interfaces;
+﻿using Associate.Models;
+using Associate.Models.Interfaces;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -15,24 +16,55 @@ namespace Associate.Tests
 
         }
 
-        public void Dispose()
-        {
-           
-        }
+        
 
         [Fact]
-        public void GoToNextStage_NotLastStage_ChangesTheCurrentStage()
+        public void GoToNextStage_FirstStage_InitializesFirstStage()
         {
             //Arrange
             var mock1 = new Mock<IStage>();
+            var mock2 = new Mock<IStage>();
+            var mock3 = new Mock<IStage>();
+            var mock4 = new Mock<IStage>();
 
+            var listOfStages = new List<IStage> { mock1.Object, mock2.Object, mock3.Object, mock4.Object };
+
+            var game = new Game();
+            game.Stages = listOfStages;
 
             //Act
-            stage.SetUpPlayerRound();
+            game.GoToNextStage();
 
 
             //Assert
-            Assert.Equal("IvanOne", stage.CurrentRound.CurrentPlayer.Name);
+            Assert.Equal(mock1.Object, game.CurrentStage);
+
+
+        }
+
+        [Fact]
+        public void GoToNextStage_NotLast_ChangesCurrentStage()
+        {
+            //Arrange
+            var mock1 = new Mock<IStage>();
+            var mock2 = new Mock<IStage>();
+            var mock3 = new Mock<IStage>();
+            var mock4 = new Mock<IStage>();
+
+            var listOfStages = new List<IStage> { mock1.Object, mock2.Object, mock3.Object, mock4.Object };
+
+            var game = new Game();
+            game.Stages = listOfStages;
+
+            //Act
+            game.GoToNextStage();
+            game.GoToNextStage();
+
+
+
+            //Assert
+            Assert.NotEqual(mock1.Object, game.CurrentStage);
+            Assert.Equal(mock2.Object, game.CurrentStage);
 
 
         }
@@ -41,16 +73,27 @@ namespace Associate.Tests
         public void GoToNextStage_AlteringCollection_ChangesTheCurrentStage()
         {
             //Arrange
-            Stage stage = new Stage(Words, PlayerOrder, new TimeSpan(1, 0, 0));
+            var mock1 = new Mock<IStage>();
+            var mock2 = new Mock<IStage>();
+          
 
+            var listOfStages = new List<IStage> { mock1.Object};
+
+            var game = new Game();
+            game.Stages = listOfStages;
+            game.GoToNextStage();
 
             //Act
-            stage.SetUpPlayerRound();
+
+
+            game.Stages.Add(mock2.Object);
+            game.GoToNextStage();
+           
 
 
             //Assert
-            Assert.Equal("IvanOne", stage.CurrentRound.CurrentPlayer.Name);
-
+            Assert.NotEqual(mock1.Object, game.CurrentStage);
+            Assert.Equal(mock2.Object, game.CurrentStage);
 
         }
 
@@ -58,17 +101,29 @@ namespace Associate.Tests
         public void GoToNextStage_LastStage_DoesNothing()
         {
             //Arrange
-            Stage stage = new Stage(Words, PlayerOrder, new TimeSpan(1, 0, 0));
+            var mock1 = new Mock<IStage>();
+            var mock2 = new Mock<IStage>();
+           
+            var listOfStages = new List<IStage> { mock1.Object, mock2.Object};
 
-
+            var game = new Game();
+            game.Stages = listOfStages;
+            game.GoToNextStage();
+            game.GoToNextStage();
             //Act
-            stage.SetUpPlayerRound();
 
+
+            game.GoToNextStage();
+            game.GoToNextStage();
+            game.GoToNextStage();
 
             //Assert
-            Assert.Equal("IvanOne", stage.CurrentRound.CurrentPlayer.Name);
+
+            Assert.Equal(mock2.Object, game.CurrentStage);
 
 
+
+            
         }
     }
 }
