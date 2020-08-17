@@ -14,7 +14,7 @@ namespace Associate
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new MainPage();
+            MainPage = new MainMenuPage();
         }
 
         protected override void OnStart()
