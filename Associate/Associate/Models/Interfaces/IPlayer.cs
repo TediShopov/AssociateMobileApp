@@ -7,6 +7,8 @@ namespace Associate.Models.Interfaces
     public interface IPlayer
     {
         Dictionary<IStage, List<string>> GuessedWordsPerStage { get; set; }
+
+        void PlayerParticipateInStage(IStage stage);
         string Name { get; set; }
 
         List<string> CreatedWords { get; }

@@ -51,17 +51,22 @@ namespace Associate.Models
             {
                 this.currentRound = new Round(playerOrder.GoToNextPlayer(), this.TimePerPlayer,this);
             }
+            else
+            {
+                throw new NullReferenceException("Player order is null");
+            }
         }
 
         public void GuessWordForCurrentPlayer()
         {
             if (this.IsOver == false)
             {
-                if (this.CurrentRound.RoundTimer.IsOver == false || this.CurrentRound.RoundTimer.IsStarted==true)
+                if (this.CurrentRound.RoundTimer.IsOver == false && this.CurrentRound.RoundTimer.IsStarted==true)
                 {
                     this.CurrentRound.CurrentPlayer.GuessWordOnStage(this.RemainingWords.Dequeue(),this);
                 }
             }
+           
         }
 
         

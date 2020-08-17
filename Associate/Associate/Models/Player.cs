@@ -13,6 +13,13 @@ namespace Associate.Models
             this.GuessedWordsPerStage = new Dictionary<IStage, List<string>>();
             this.CreatedWords = new List<string>();
         }
+
+        public Player(string name)
+        {
+            this.Name = name;
+            this.GuessedWordsPerStage = new Dictionary<IStage, List<string>>();
+            this.CreatedWords = new List<string>();
+        }
         public Dictionary<IStage, List<string>> GuessedWordsPerStage { get; set; }
         public string Name { get; set; }
 
@@ -31,10 +38,23 @@ namespace Associate.Models
                 {
                     this.GuessedWordsPerStage[stage].Add(word);
                 }
-                else
-                {
-                    this.GuessedWordsPerStage.Add(stage, new List<string> { word });
-                }
+                
+            }
+            else
+            {
+                this.GuessedWordsPerStage.Add(stage, new List<string> { word });
+            }
+        }
+
+        public void PlayerParticipateInStage(IStage stage) 
+        {
+            if (this.GuessedWordsPerStage.ContainsKey(stage))
+            {
+               
+            }
+            else
+            {
+                this.GuessedWordsPerStage.Add(stage, new List<string> ());
             }
         }
     }

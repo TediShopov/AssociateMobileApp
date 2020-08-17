@@ -7,6 +7,10 @@ namespace Associate.Models
 {
     public class Team : ITeam
     {
+        public Team()
+        {
+            this.Members = new List<IPlayer>();
+        }
         public List<IPlayer> Members { get ; set ; }
 
         public List<string> GuessedWordsForStage(IStage stage)

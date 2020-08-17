@@ -13,6 +13,8 @@ namespace Associate.Models
         {
             this.stages = stages;
         }
+
+        //Todo make for a draw
         public ITeam GetWinner(List<ITeam> teams)
         {
             ITeam winningTeam=teams[0];
@@ -40,7 +42,7 @@ namespace Associate.Models
             int totalPoints = 0;
             foreach (var stage in this.stages)
             {
-                totalPoints += team.GuessedWordsPerStage[stage].Count;
+                totalPoints += PointsPerTeamForStage(team,stage);
             }
             return totalPoints;
         }
