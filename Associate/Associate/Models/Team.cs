@@ -11,6 +11,11 @@ namespace Associate.Models
         {
             this.Members = new List<IPlayer>();
         }
+        public Team(string name)
+        {
+            this.Members = new List<IPlayer>();
+            this.Name = name;
+        }
         public List<IPlayer> Members { get ; set ; }
 
         public List<string> GuessedWordsForStage(IStage stage)
@@ -41,5 +46,7 @@ namespace Associate.Models
                 return ret;
             }
                 }
+
+        public string Name { get ; set ; }
     }
 }

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Accordion;assembly=Syncfusion.Expander.XForms"
+             mc:Ignorable="d"
+             x:Class="Associate.Views.CreateTeamsPage"
+             NavigationPage.HasNavigationBar="false">
+   
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+            <syncfusion:SfAccordion x:Name="Accordion" Grid.Row="1" BindableLayout.ItemsSource="{Binding Teams}" >
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <syncfusion:AccordionItem>
+                            <syncfusion:AccordionItem.Header>
+                                <Grid>
+                                    <Entry Text="{Binding Name,Mode=TwoWay}" FontSize="Title"/>
+                                </Grid>
+                            </syncfusion:AccordionItem.Header>
+                            <syncfusion:AccordionItem.Content>
+
+
+                                <CollectionView  HeightRequest="150"   ItemsSource="{Binding Members}" >
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+
+                                            <Entry Text="{Binding Name,Mode=TwoWay}" FontSize="Medium">
+
+                                            </Entry>
+
+
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+
+                            </syncfusion:AccordionItem.Content>
+                        </syncfusion:AccordionItem>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </syncfusion:SfAccordion>
+            <Button Text="Add Team" Command="{Binding AddTeam}"> </Button>
+                <Button  Text="StageConfiguration" Clicked="StageConfigurationButton_Clicked"></Button>
+
+            </StackLayout>
+        </ScrollView>
+
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,9 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "GxkhQ91Wf6npW68Go8Rvzd90K+FGvd6nJkAM8st/6f5G7uFZT3zi7ri5Qztb/FpGFNgYqdy/VsG/ao9BDvyaxQ==",
+  "dgSpecHash": "awX+TkJd81GqCEeJ6J0XqBZqRkdjr/tAJoMlObanpT25MzarcIlu1d2WriH00UWgy01oGo5GKunjTRE0aYFwhw==",
   "success": true,
   "projectFilePath": "D:\\Programming\\Xamarin\\Associate\\Associate\\Associate.iOS\\Associate.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\fody\\6.1.1\\fody.6.1.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\propertychanged.fody\\3.2.8\\propertychanged.fody.3.2.8.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.licensing\\18.2.0.48\\syncfusion.licensing.18.2.0.48.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xamarin.core\\18.2.0.48\\syncfusion.xamarin.core.18.2.0.48.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xamarin.expander\\18.2.0.48\\syncfusion.xamarin.expander.18.2.0.48.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\xamarin.forms\\4.8.0.1269\\xamarin.forms.4.8.0.1269.nupkg.sha512"
   ],

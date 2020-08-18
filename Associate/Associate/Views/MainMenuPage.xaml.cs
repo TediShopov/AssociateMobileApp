@@ -15,6 +15,14 @@ namespace Associate.Views
         public MainMenuPage()
         {
             InitializeComponent();
+          
+          
+
+        }
+
+        private async void OnPlayButtonClicked(object sender, EventArgs e)
+        {
+           await this.Navigation.PushAsync(new CreateTeamsPage());
         }
     }
 }

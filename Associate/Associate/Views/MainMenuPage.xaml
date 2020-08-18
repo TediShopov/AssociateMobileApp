@@ -5,20 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:views="clr-namespace:Associate.Views"
-             x:Class="Associate.Views.MainMenuPage">
+             x:Class="Associate.Views.MainMenuPage"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="0,300,0,0">
             <Label Text="Associate"
                    FontFamily="Asap"
-                Margin="0,20,0,0"
-                   FontSize="Large"
+                   FontSize="Title"
                 HorizontalOptions="CenterAndExpand" />
-            <Label Text="Associate"
-                   FontFamily=""
-                Margin="0,20,0,0"
-                   FontSize="Large"
+            <Button Text="Play"
+                    Clicked="OnPlayButtonClicked"
+                   FontFamily="PassionOne"
+                   FontSize="Medium"
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Game Settings"
+                   FontFamily="PassionOne"
+                   FontSize="Medium"
                 HorizontalOptions="CenterAndExpand" />
             
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
