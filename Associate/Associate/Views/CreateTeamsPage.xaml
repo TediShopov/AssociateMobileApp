@@ -6,7 +6,8 @@
              xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Accordion;assembly=Syncfusion.Expander.XForms"
              mc:Ignorable="d"
              x:Class="Associate.Views.CreateTeamsPage"
-             NavigationPage.HasNavigationBar="false">
+             NavigationPage.HasNavigationBar="false"
+             >
    
     <ContentPage.Content>
         <ScrollView>

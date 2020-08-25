@@ -9,8 +9,8 @@ namespace Associate.Models
     {
         public Queue<IPlayer> Order { get { return playerOrder; } }
         private Queue<IPlayer> playerOrder;
-        private List<Team> teamOrder;
-        public PlayerOrder(List<Team> teams, bool toShuffle)
+        private List<ITeam> teamOrder;
+        public PlayerOrder(List<ITeam> teams, bool toShuffle)
         {
             if (toShuffle)
             {
@@ -24,7 +24,7 @@ namespace Associate.Models
             InitializePlayerOrder();
         }
 
-        private  void SetShuffledTeamOrder(List<Team> teams)
+        private  void SetShuffledTeamOrder(List<ITeam> teams)
         {
             Random random = new Random();
 
@@ -33,7 +33,7 @@ namespace Associate.Models
             {
                 int rnd = random.Next(i + 1);
 
-                Team value = teams[rnd];
+                ITeam value = teams[rnd];
                 teams[rnd] = teams[i];
                 teams[i] = value;
             }

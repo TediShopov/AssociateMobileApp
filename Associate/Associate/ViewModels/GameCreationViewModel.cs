@@ -1,5 +1,6 @@
 ﻿using Associate.Models;
 using Associate.Models.Interfaces;
+using Syncfusion.DataSource.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,21 +14,21 @@ namespace Associate.ViewModels
    public class GameCreationViewModel:INotifyPropertyChanged
     {
 
-        private class TeamViewModel :  INotifyPropertyChanged
-        {
-            public event PropertyChangedEventHandler PropertyChanged;
-            public List<IPlayer> Members { get; set ; }
-            public string Name { get ; set ; }
+        //private class TeamViewModel :  INotifyPropertyChanged
+        //{
+        //    public event PropertyChangedEventHandler PropertyChanged;
+        //    public List<IPlayer> Members { get; set ; }
+        //    public string Name { get ; set ; }
 
-        }
+        //}
 
-        private class PlayerViewModel :  INotifyPropertyChanged
-        {
-            public event PropertyChangedEventHandler PropertyChanged;
+        //private class PlayerViewModel :  INotifyPropertyChanged
+        //{
+        //    public event PropertyChangedEventHandler PropertyChanged;
 
-            public string Name { get; set; }
+        //    public string Name { get; set; }
 
-        }
+        //}
 
         private List<ITeam> gameTeams;
 
@@ -36,6 +37,7 @@ namespace Associate.ViewModels
         {
             
             this.AddTeam = new Command(AddTeamToCollection);
+            this.InitializePlayerOrderCom = new Command(InitializePlayerOrder);
 
             this.Teams = new ObservableCollection<ITeam>();
             var teamOne = new Team("TeamOne");
@@ -52,6 +54,12 @@ namespace Associate.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void InitializePlayerOrder() 
+        {
+            var teamList = new List<ITeam>(this.Teams);
+            this.PlayerOrder = new PlayerOrder(teamList, false);
+        }
 
         public void AddTeamToCollection() 
         {
@@ -79,6 +87,10 @@ namespace Associate.ViewModels
         }
 
         public ICommand AddTeam { get; set; }
+        public ICommand InitializePlayerOrderCom { get; set; }
+
+
+        public IPlayerOrder PlayerOrder { get; set; }
         public ObservableCollection<ITeam> Teams { get; set; }
     }
 }

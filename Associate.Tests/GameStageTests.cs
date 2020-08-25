@@ -9,7 +9,7 @@ namespace Associate.Tests
 {
     public class GameStageTests:IDisposable
     {
-        List<Team> Teams;
+        List<ITeam> Teams;
         PlayerOrder PlayerOrder;
         Queue<string> Words;
         public GameStageTests()
@@ -24,10 +24,10 @@ namespace Associate.Tests
             Player player8 = new Player("PeturFour");
 
             //Arrange
-            var teamOne = new Team();
-            var teamTwo = new Team();
-            var teamThree = new Team();
-            var teamFour = new Team();
+            ITeam teamOne = new Team();
+            ITeam teamTwo = new Team();
+            ITeam teamThree = new Team();
+            ITeam teamFour = new Team();
 
             teamOne.Members.Add(player1);
             teamOne.Members.Add(player2);
@@ -39,7 +39,7 @@ namespace Associate.Tests
             teamFour.Members.Add(player8);
 
 
-            Teams = new List<Team> { teamOne, teamTwo, teamThree, teamFour };
+            Teams = new List<ITeam> { teamOne, teamTwo, teamThree, teamFour };
             PlayerOrder = new PlayerOrder(Teams, false);
 
 
@@ -48,7 +48,7 @@ namespace Associate.Tests
 
         public void Dispose()
         {
-            Teams = new List<Team>();
+            Teams = new List<ITeam>();
            // PlayerOrder = new PlayerOrder(new Queue<Player>());
             Words = new Queue<string>();
         }

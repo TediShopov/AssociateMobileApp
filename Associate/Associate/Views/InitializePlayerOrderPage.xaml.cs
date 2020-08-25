@@ -11,19 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace Associate.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateTeamsPage : ContentPage
+    public partial class InitializePlayerOrderPage : ContentPage
     {
-        
-        public CreateTeamsPage()
+        public InitializePlayerOrderPage()
         {
             InitializeComponent();
             BindingContext = ViewModelLocator.GameCreationViewModel;
         }
 
-        private async void  StageConfigurationButton_Clicked(object sender, EventArgs e)
+        private async void GoToStageConfigClicked_Clicked(object sender, EventArgs e)
         {
-            ViewModelLocator.GameCreationViewModel.CreateTeams();
-            await this.Navigation.PushAsync(new InitializePlayerOrderPage());
+            
+            await this.Navigation.PushAsync(new StageConfigurationPage());
         }
     }
 }
