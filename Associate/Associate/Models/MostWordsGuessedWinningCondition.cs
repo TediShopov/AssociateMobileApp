@@ -14,6 +14,11 @@ namespace Associate.Models
             this.stages = stages;
         }
 
+        public MostWordsGuessedWinningCondition()
+        {
+            
+        }
+
         //Todo make for a draw
         public ITeam GetWinner(List<ITeam> teams)
         {

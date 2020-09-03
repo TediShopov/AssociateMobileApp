@@ -98,6 +98,23 @@
           "lib/Xamarin.iOS10/Syncfusion.SfListView.XForms.iOS.dll": {}
         }
       },
+      "Syncfusion.Xamarin.SfPicker/18.2.0.55": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.55",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -239,6 +256,7 @@
           "PropertyChanged.Fody": "3.2.8",
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -347,6 +365,23 @@
           "lib/Xamarin.iOS10/Syncfusion.SfListView.XForms.iOS.dll": {}
         }
       },
+      "Syncfusion.Xamarin.SfPicker/18.2.0.55": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.55",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -488,6 +523,7 @@
           "PropertyChanged.Fody": "3.2.8",
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -596,6 +632,23 @@
           "lib/Xamarin.iOS10/Syncfusion.SfListView.XForms.iOS.dll": {}
         }
       },
+      "Syncfusion.Xamarin.SfPicker/18.2.0.55": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.55",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -737,6 +790,7 @@
           "PropertyChanged.Fody": "3.2.8",
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -845,6 +899,23 @@
           "lib/Xamarin.iOS10/Syncfusion.SfListView.XForms.iOS.dll": {}
         }
       },
+      "Syncfusion.Xamarin.SfPicker/18.2.0.55": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.55",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -986,6 +1057,7 @@
           "PropertyChanged.Fody": "3.2.8",
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -1210,6 +1282,35 @@
         "lib/uap10.0/Syncfusion.SfListView.XForms.xml",
         "syncfusion.xamarin.sflistview.18.2.0.55.nupkg.sha512",
         "syncfusion.xamarin.sflistview.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfPicker/18.2.0.55": {
+      "sha512": "B5qme6YDEWCgu3VhGrAsjPGfEoRamtBGPWW/jBn9CNimDxTkgjetk53WQUfSShJ9rhv9hFGNkp/PMyKUis0FyQ==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sfpicker/18.2.0.55",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.SfPicker.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfPicker.Android.xml",
+        "lib/MonoAndroid10/Syncfusion.SfPicker.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfPicker.XForms.XML",
+        "lib/MonoAndroid10/Syncfusion.SfPicker.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.XML",
+        "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.xml",
+        "lib/netstandard2.0/Syncfusion.SfPicker.XForms.XML",
+        "lib/netstandard2.0/Syncfusion.SfPicker.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfPicker.XForms.XML",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfPicker.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfPicker.XForms.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfPicker.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfPicker.XForms.XML",
+        "lib/uap10.0/Syncfusion.SfPicker.XForms.dll",
+        "syncfusion.xamarin.sfpicker.18.2.0.55.nupkg.sha512",
+        "syncfusion.xamarin.sfpicker.nuspec"
       ]
     },
     "Xamarin.Essentials/1.5.3.2": {
@@ -1583,6 +1684,7 @@
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
       "Associate >= 1.0.0",
+      "Syncfusion.Xamarin.SfPicker >= 18.2.0.55",
       "Xamarin.Essentials >= 1.5.3.2",
       "Xamarin.Forms >= 4.8.0.1269"
     ]
@@ -1629,6 +1731,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "Syncfusion.Xamarin.SfPicker": {
+            "target": "Package",
+            "version": "[18.2.0.55, )"
+          },
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.5.3.2, )"

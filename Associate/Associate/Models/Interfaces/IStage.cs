@@ -6,6 +6,8 @@ namespace Associate.Models.Interfaces
 {
     public interface IStage
     {
+
+         
         IRound CurrentRound { get; }
 
         IPlayerOrder playerOrder { get; set; }

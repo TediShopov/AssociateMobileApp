@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Associate.Views.WordEnterPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding CurrentPlayer.Name}"
+                
+                HorizontalOptions="Start" />
+
+            <CollectionView  ItemsSource="{Binding EnteredWords}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Entry Text="{Binding Word}" > </Entry>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Button Text="{Binding NextPlayer.Name,StringFormat='Go To {0}s words'}"
+                Command="{Binding GoToNextPlayerCommand}"
+                    IsVisible="{Binding NextPlayerButtonVisible}"
+                HorizontalOptions="End" />
+
+            <Button Text="Start Game"
+                Clicked="StartGameButton_Clicked"
+                    IsVisible="{Binding StartButtonVisible}"
+                HorizontalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

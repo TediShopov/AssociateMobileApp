@@ -42,6 +42,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "Syncfusion.Xamarin.SfPicker": {
+              "target": "Package",
+              "version": "[18.2.0.55, )"
+            },
             "Xamarin.Essentials": {
               "target": "Package",
               "version": "[1.5.3.2, )"
@@ -107,6 +111,10 @@
               "version": "[18.2.0.48, )"
             },
             "Syncfusion.Xamarin.SfListView": {
+              "target": "Package",
+              "version": "[18.2.0.55, )"
+            },
+            "Syncfusion.Xamarin.SfPicker": {
               "target": "Package",
               "version": "[18.2.0.55, )"
             },

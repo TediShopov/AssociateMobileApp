@@ -2,6 +2,8 @@ FormsViewGroup
 Syncfusion.Core.XForms.Android
 Syncfusion.Expander.XForms.Android
 Syncfusion.SfListView.XForms.Android
+Syncfusion.SfPicker.Android
+Syncfusion.SfPicker.XForms.Android
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime
 Xamarin.Android.Arch.Lifecycle.Common

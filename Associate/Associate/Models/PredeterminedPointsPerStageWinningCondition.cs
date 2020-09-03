@@ -13,6 +13,11 @@ namespace Associate.Models
         {
             this.pointsPerStage = pointsPerStage;
         }
+
+        public PredeterminedPointsPerStageWinningCondition()
+        {
+
+        }
         public ITeam GetWinner(List<ITeam> teams)
         {
             ITeam winningTeam=teams[0];

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "rBt+hWo3xwtmNb+mo/XW7MFIzFRuFLqy3z+Z5btSbyeNaO3hDLMj/J9s0+fKDJgO11W7yek6qZd/KxcKmf9WNQ==",
+  "dgSpecHash": "vpvCyo67dIgwACM4/36c/3wPkP/QCXgJU1IDrT+Ujjp34+RyfjRUkNQJYa3rPfOnYkdEMlbng5yP7X2odwM9+g==",
   "success": true,
   "projectFilePath": "D:\\Programming\\Xamarin\\Associate\\Associate\\Associate.iOS\\Associate.iOS.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.xamarin.expander\\18.2.0.48\\syncfusion.xamarin.expander.18.2.0.48.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\18.2.0.55\\syncfusion.xamarin.gridcommon.18.2.0.55.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\syncfusion.xamarin.sflistview\\18.2.0.55\\syncfusion.xamarin.sflistview.18.2.0.55.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\syncfusion.xamarin.sfpicker\\18.2.0.55\\syncfusion.xamarin.sfpicker.18.2.0.55.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\xamarin.forms\\4.8.0.1269\\xamarin.forms.4.8.0.1269.nupkg.sha512"
   ],
