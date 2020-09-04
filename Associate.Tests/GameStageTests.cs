@@ -54,6 +54,28 @@ namespace Associate.Tests
         }
 
         [Fact]
+        public void StageCreatesCorrectly_ListOfWordsToShuffle_ShufflesWords()
+        {
+
+            var listOfWords = new List<string>();
+            listOfWords.Add("AA");
+            listOfWords.Add("AAa");
+            listOfWords.Add("AAb");
+            //Arrange
+            Stage stage = new Stage(listOfWords, PlayerOrder, new TimeSpan(1, 0, 0));
+
+
+            //Act
+            stage.SetUpPlayerRound();
+
+
+            //Assert
+            Assert.NotSame(stage.RemainingWords,listOfWords);
+
+
+        }
+
+        [Fact]
         public void SetUpPlayerRound_NotNullPlayerOrder_CreatesRoundWithFirstPlayer()
         {
             //Arrange

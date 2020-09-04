@@ -41,6 +41,8 @@ namespace Associate.Models
 
         public bool IsFinished { get { return isFinished; } }
 
+        public bool OnLastStage { get { return CurrentStage == this.Stages.Last(); } }
+
         public int NumberOfStages
         {
             get

@@ -29,6 +29,8 @@ namespace Associate.Models
         private bool isStarted;
         public bool IsStarted { get { return isStarted; } }
 
+        public Action OnTimerStoped { get ; set ; }
+
         private  void SetTimer()
         {
             // Create a timer with a two second interval.
@@ -41,7 +43,8 @@ namespace Associate.Models
 
         private  void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            if (this.timeLeft.TotalSeconds == 1)
+            
+            if (this.timeLeft.TotalSeconds == 0)
             {
                 StopTimer();
             }
@@ -66,7 +69,9 @@ namespace Associate.Models
         public void StopTimer()
         {
             timer.Stop();
+            timer.Enabled = false;
             this.isOver = true;
+            this.OnTimerStoped.Invoke();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Associate.Services;
+﻿using Associate.Models;
+using Associate.Services;
 using Associate.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Associate.Views
         {
             this.wordEnterViewModel.AddCreatedWordsToPlayer();
             this.wordEnterViewModel.AddCreatedWordsToUnshuffledWords();
-            var game = ViewModelLocator.GameCreationViewModel.CreateGame(this.wordEnterViewModel.UnshuffledWords);
+            Game game = ViewModelLocator.GameCreationViewModel.CreateGame(this.wordEnterViewModel.UnshuffledWords);
             this.Navigation.PushAsync(new PlayGamePage(game));
         }
     }

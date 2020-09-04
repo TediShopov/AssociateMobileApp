@@ -1,87 +1,170 @@
-﻿using System;
+﻿using Associate.Models;
+using Associate.Models.Interfaces;
+using PropertyChanged;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
+using System.Reflection;
+using System.Linq;
 
 namespace Associate.ViewModels
 {
-   public class PlayGameViewModel : INotifyPropertyChanged
+    public class PlayGameViewModel : INotifyPropertyChanged
     {
-        public class EnteredWord
-        {
-            public EnteredWord(string words)
-            {
-                this.Word = words;
-            }
-            public string Word { get; set; }
-        }
-        private int numberOfPlayersInGame;
-        private int numberOfPlayersEnteredWords = 1;
+
+
         public event PropertyChangedEventHandler PropertyChanged;
-        public PlayGameViewModel(IPlayerOrder playerOrder, int numberOfWordsPerPlayer)
+        public PlayGameViewModel(Game game)
         {
-            this.playerOrder = playerOrder;
-            this.GoToNextPlayerCommand = new Command(GoToNextPlayer);
-            this.numberOfPlayersInGame = playerOrder.Order.Count;
-            this.EnteredWords = InitializeEnteredWords(numberOfWordsPerPlayer);
-            this.StartButtonVisible = false;
-            this.NextPlayerButtonVisible = true;
-            this.CurrentPlayer = this.playerOrder.GoToNextPlayer();
+            //setting up game
+            this.Game = game;
+            this.Game.GoToNextStage();
+            SetUpNextPlayerRound();
+
+            //Command init
+            this.GoToNextRoundCommand = new Command(GoToNextRound);
+            this.GoToNextStageCommand = new Command(GoToNextStage);
+            this.StartRoundTimerCommand = new Command(StartRoundTimer);
+            this.GuessWordCommand = new Command(GuessWord);
+
+
+            //Butttons and Labels Init
+            this.WordsGuessedThisRound = 0;
+            this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
+            this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
+            this.StartRoundTimerButtonVisible = true;
+            this.NextStageButtonVisible = false;
+            this.NextRoundButtonVisible = false;
+            this.EndGameButtonVisible = false;
+
+
+
         }
 
-        private ObservableCollection<EnteredWord> InitializeEnteredWords(int numberOfWordsPerPlayer)
+        private void SetUpNextPlayerRound()
         {
-            var enteredWords = new ObservableCollection<EnteredWord>();
-            string wordPrefix = "Word";
-            for (int i = 1; i <= numberOfWordsPerPlayer; i++)
+            this.Game.CurrentStage.SetUpPlayerRound();
+            //Timer Settings- On Tick and On Stop
+            this.Game.CurrentStage.CurrentRound.RoundTimer.OnEachTick = OnEachSecond;
+            this.Game.CurrentStage.CurrentRound.RoundTimer.OnTimerStoped = OnTimerRanOut;
+        }
+
+        public Game Game { get; set; }
+
+        public int WordsGuessedThisRound { get; set; }
+
+        public string DisplayTimeRemainingString { get; set; }
+
+        public string CurrentPlayerName { get; set; }
+
+        public string WordToGuess { get; set; }
+        public bool StartRoundTimerButtonVisible { get; set; }
+        public bool EndGameButtonVisible { get; set; }
+        public bool NextStageButtonVisible { get; set; }
+
+        public bool NextRoundButtonVisible { get; set; }
+        public ICommand GoToNextRoundCommand { get; set; }
+
+        public ICommand GoToNextStageCommand { get; set; }
+        public ICommand StartRoundTimerCommand { get; set; }
+
+        public ICommand GuessWordCommand { get; set; }
+
+        public void GoToNextStage()
+        {
+            this.Game.GoToNextStage();
+            SetUpNextPlayerRound();
+            this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
+            this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer");
+        }
+
+        public void GoToNextRound()
+        {
+           
+            SetUpNextPlayerRound();
+            this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
+            this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer");
+        }
+        public void GuessWord()
+        {
+            this.Game.CurrentStage.GuessWordForCurrentPlayer();
+            this.WordsGuessedThisRound++;
+            if (this.Game.CurrentStage.IsOver)
             {
-                enteredWords.Add(new EnteredWord(wordPrefix + i.ToString()));
-
+                OnStageOver();
             }
-            return enteredWords;
-        }
-
-        public ObservableCollection<EnteredWord> EnteredWords { get; set; }
-
-
-        public IPlayerOrder playerOrder { get; set; }
-
-        [AlsoNotifyFor("NextPlayer")]
-        public IPlayer CurrentPlayer { get; set; }
-
-        public IPlayer NextPlayer { get { return playerOrder.PeekNextPlayer(); } }
-
-        public bool StartButtonVisible { get; set; }
-
-        public bool NextPlayerButtonVisible { get; set; }
-        public ICommand GoToNextPlayerCommand { get; set; }
-        public void GoToNextPlayer()
-        {
-
-
-            AddCreatedWordsToPlayer();
-            ResetEnteredWords();
-            this.CurrentPlayer = playerOrder.GoToNextPlayer();
-            numberOfPlayersEnteredWords++;
-            if (numberOfPlayersEnteredWords == numberOfPlayersInGame)
+            else
             {
-                StartButtonVisible = true;
-                NextPlayerButtonVisible = false;
+                this.WordToGuess = this.Game.CurrentStage.GiveOutNewWordToGuess();
             }
-
         }
 
-        private void ResetEnteredWords()
+        public void StartRoundTimer()
         {
-            this.EnteredWords = InitializeEnteredWords(this.EnteredWords.Count);
+            this.Game.CurrentStage.CurrentRound.RoundTimer.StartTimer();
+            this.WordToGuess = this.Game.CurrentStage.GiveOutNewWordToGuess();
+            //ТОДО
         }
 
-        public void AddCreatedWordsToPlayer()
+        public void StopRoundTimer()
         {
-            foreach (var enteredWord in this.EnteredWords)
+            this.Game.CurrentStage.CurrentRound.RoundTimer.StopTimer();
+        }
+
+        private void OnStageOver()
+        {
+            if (this.Game.OnLastStage)
             {
-                this.CurrentPlayer.AddCreatedWord(enteredWord.Word);
+                MakeButtonsIsVisiblePropertyTrueByName("EndGame");
             }
+            else
+            {
+                MakeButtonsIsVisiblePropertyTrueByName("NextStage");
+            }
+
         }
+
+        public void StartTimer()
+        {
+            this.Game.CurrentStage.CurrentRound.RoundTimer.StartTimer();
+        }
+
+        public void OnTimerRanOut()
+        {
+            MakeButtonsIsVisiblePropertyTrueByName("NextRound");
+        }
+
+        public void OnEachSecond()
+        {
+            this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
+        }
+
+        private void MakeButtonsIsVisiblePropertyTrueByName(params string[] propertyNames) 
+        {
+            var propertyInfos = typeof(PlayGameViewModel).GetProperties(BindingFlags.Public | BindingFlags.Instance)
+               .Where(x=>x.Name.EndsWith("ButtonVisible") && x.PropertyType==typeof(bool))
+               .ToList()
+                ;
+
+            foreach (var propertyInfo in propertyInfos)
+            {
+                propertyInfo.SetValue(this, false);
+            }
+            foreach (var propertyName in propertyNames)
+            {
+                var propertyNameWithSuffix = propertyName + "ButtonVisible";
+                propertyInfos.FirstOrDefault(x => x.Name == propertyNameWithSuffix).SetValue(this, true);
+            }
+           
+        }
+
+        
+
+        
     }
 }

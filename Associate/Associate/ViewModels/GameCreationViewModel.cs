@@ -170,6 +170,7 @@ namespace Associate.ViewModels
             foreach (var stageDetails in this.StagesDetails)
             {
                 var stage = new Stage(unshuffledWords, this.PlayerOrder, stageDetails.TimePerPlayer);
+                listOfGameStage.Add(stage);
             }
             return listOfGameStage;
         }

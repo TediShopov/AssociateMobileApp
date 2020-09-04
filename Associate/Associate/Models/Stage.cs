@@ -73,12 +73,15 @@ namespace Associate.Models
 
         private Queue<string> ShuffleWords(List<string> nonShuffledWords)
         {
+            var newNonShuffledWordList = new List<string>(nonShuffledWords);
             Queue<string> shuffledWords = new Queue<string>();
             Random random = new Random();
-            while (nonShuffledWords.Count != 0)
+            while (newNonShuffledWordList.Count != 0)
             {
-                int randomIndex = random.Next(0, nonShuffledWords.Count);
-                shuffledWords.Enqueue(nonShuffledWords[randomIndex]);
+                int randomIndex = random.Next(0, newNonShuffledWordList.Count);
+                
+                shuffledWords.Enqueue(newNonShuffledWordList[randomIndex]);
+                newNonShuffledWordList.RemoveAt(randomIndex);
 
 
             }

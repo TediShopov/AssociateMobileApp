@@ -31,6 +31,7 @@ namespace Associate.ViewModels
             this.StartButtonVisible = false;
             this.NextPlayerButtonVisible = true;
             this.CurrentPlayer = this.playerOrder.GoToNextPlayer();
+            this.UnshuffledWords = new List<string>();
         }
 
         private ObservableCollection<EnteredWord> InitializeEnteredWords(int numberOfWordsPerPlayer)

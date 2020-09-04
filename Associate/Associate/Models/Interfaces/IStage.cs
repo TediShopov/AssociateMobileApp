@@ -12,7 +12,7 @@ namespace Associate.Models.Interfaces
 
         IPlayerOrder playerOrder { get; set; }
 
-
+        void GuessWordForCurrentPlayer();
         Queue<string> InitialWords { get;  }
         Queue<string> RemainingWords { get; set; }
 
@@ -20,7 +20,9 @@ namespace Associate.Models.Interfaces
 
         bool IsOver { get; }
         void SetUpPlayerRound();
+        string GiveOutNewWordToGuess();
 
-        
+
+
     }
 }

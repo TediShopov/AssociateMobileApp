@@ -7,9 +7,32 @@
              x:Class="Associate.Views.PlayGamePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding CurrentPlayerName}" HorizontalOptions="Start" FontSize="Default">
+            </Label>
+            <Label Text="{Binding DisplayTimeRemainingString}" HorizontalOptions="Center" FontSize="Large" >
+                
+            </Label>
+
+            
+            <Label Text="{Binding WordToGuess,StringFormat='Word to guess: {0}'}" FontSize="Small"
+                   HorizontalOptions="Start"></Label>
+            <Button Text="Start Round!"  HorizontalOptions="Center" IsVisible="{Binding StartRoundTimerButtonVisible}" Command="{Binding StartRoundTimerCommand}">
+               
+                
+            </Button>
+            <Button Text="Guess Word"  Command="{Binding GuessWordCommand}">
+                
+            </Button>
+            <Button Text="Next Round" IsVisible="{Binding NextRoundButtonVisible}" Command="{Binding GoToNextRoundCommand}">
+                
+            </Button>
+            <Button Text="Next Stage" IsVisible="{Binding NextStageButtonVisible}" Command="{Binding GoToNextStageCommand}">
+
+            </Button>
+            <Button IsVisible="{Binding EndGameButtonVisible}" Text="End Game">
+
+            </Button>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
