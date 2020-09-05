@@ -83,7 +83,7 @@ namespace Associate.ViewModels
 
             this.AddTeam = new Command(AddTeamToCollection);
            
-            this.AddStageDetailCom = new Command(AddStageDetail);
+            this.AddStageDetailCom = new Command<string>(AddStageDetailWithName);
             this.InitializePlayerOrderCom = new Command(InitializePlayerOrder);
 
 
@@ -97,19 +97,7 @@ namespace Associate.ViewModels
 
         }
 
-        private void ChangeTargetStageForChangingTimePerPlayer(object obj)
-        {
-            var stageDetail = (StageDetails)obj;
-            this.StageDetailTarget = stageDetail;
-        }
-
-        private void ChangeStageDetailsTime(object arg)
-        {
-            var timeChangedArgs = (EventArgs)arg;
-            var a = 3;
-           // this.StageDetailTarget.TimePerPlayer = new TimeSpan(timeChanedArgs.NewValue);
-        }
-
+    
         public IPlayerOrder PlayerOrder { get; set; }
 
         public StageDetails StageDetailTarget { get; set; }
@@ -155,10 +143,9 @@ namespace Associate.ViewModels
             
         }
 
-        public void AddStageDetail()
+        public void AddStageDetailWithName(string stageName)
         {
-            this.StagesDetails.Add(new StageDetails("Stage2", new TimeSpan(0, 0, 1)));
-            
+            this.StagesDetails.Add(new StageDetails(stageName, new TimeSpan(0, 0, 1)));            
         }
 
 
@@ -198,11 +185,6 @@ namespace Associate.ViewModels
 
         public ICommand AddTeam { get; set; }
         public ICommand AddStageDetailCom { get; set; }
-
-        public ICommand StageTimePickerAcceptCommand { get; set; }
-
-        public ICommand StageTimePickerCancelCommand { get; set; }
-
 
         public ICommand InitializePlayerOrderCom { get; set; }
 

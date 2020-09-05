@@ -24,7 +24,7 @@
           "build/_._": {}
         }
       },
-      "Syncfusion.Licensing/18.2.0.55": {
+      "Syncfusion.Licensing/18.2.0.56": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
@@ -33,10 +33,10 @@
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Core/18.2.0.55": {
+      "Syncfusion.Xamarin.Core/18.2.0.56": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "18.2.0.55",
+          "Syncfusion.Licensing": "18.2.0.56",
           "Xamarin.Forms": "3.6.0.344457"
         },
         "compile": {
@@ -113,6 +113,21 @@
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfPopupLayout/18.2.0.56": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.56",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -257,6 +272,7 @@
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
           "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPopupLayout": "18.2.0.56",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -291,7 +307,7 @@
           "build/_._": {}
         }
       },
-      "Syncfusion.Licensing/18.2.0.55": {
+      "Syncfusion.Licensing/18.2.0.56": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
@@ -300,10 +316,10 @@
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Core/18.2.0.55": {
+      "Syncfusion.Xamarin.Core/18.2.0.56": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "18.2.0.55",
+          "Syncfusion.Licensing": "18.2.0.56",
           "Xamarin.Forms": "3.6.0.344457"
         },
         "compile": {
@@ -380,6 +396,21 @@
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfPopupLayout/18.2.0.56": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.56",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -524,6 +555,7 @@
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
           "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPopupLayout": "18.2.0.56",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -558,7 +590,7 @@
           "build/_._": {}
         }
       },
-      "Syncfusion.Licensing/18.2.0.55": {
+      "Syncfusion.Licensing/18.2.0.56": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
@@ -567,10 +599,10 @@
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Core/18.2.0.55": {
+      "Syncfusion.Xamarin.Core/18.2.0.56": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "18.2.0.55",
+          "Syncfusion.Licensing": "18.2.0.56",
           "Xamarin.Forms": "3.6.0.344457"
         },
         "compile": {
@@ -647,6 +679,21 @@
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfPopupLayout/18.2.0.56": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.56",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -791,6 +838,7 @@
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
           "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPopupLayout": "18.2.0.56",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -825,7 +873,7 @@
           "build/_._": {}
         }
       },
-      "Syncfusion.Licensing/18.2.0.55": {
+      "Syncfusion.Licensing/18.2.0.56": {
         "type": "package",
         "compile": {
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
@@ -834,10 +882,10 @@
           "lib/Xamarin.iOS10/Syncfusion.Licensing.dll": {}
         }
       },
-      "Syncfusion.Xamarin.Core/18.2.0.55": {
+      "Syncfusion.Xamarin.Core/18.2.0.56": {
         "type": "package",
         "dependencies": {
-          "Syncfusion.Licensing": "18.2.0.55",
+          "Syncfusion.Licensing": "18.2.0.56",
           "Xamarin.Forms": "3.6.0.344457"
         },
         "compile": {
@@ -914,6 +962,21 @@
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.XForms.iOS.dll": {},
           "lib/Xamarin.iOS10/Syncfusion.SfPicker.iOS.dll": {}
+        }
+      },
+      "Syncfusion.Xamarin.SfPopupLayout/18.2.0.56": {
+        "type": "package",
+        "dependencies": {
+          "Syncfusion.Xamarin.Core": "18.2.0.56",
+          "Xamarin.Forms": "3.6.0.344457"
+        },
+        "compile": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
+        },
+        "runtime": {
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll": {},
+          "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll": {}
         }
       },
       "Xamarin.Essentials/1.5.3.2": {
@@ -1058,6 +1121,7 @@
           "Syncfusion.Xamarin.Expander": "18.2.0.48",
           "Syncfusion.Xamarin.SfListView": "18.2.0.55",
           "Syncfusion.Xamarin.SfPicker": "18.2.0.55",
+          "Syncfusion.Xamarin.SfPopupLayout": "18.2.0.56",
           "Xamarin.Essentials": "1.5.3.2",
           "Xamarin.Forms": "4.8.0.1269"
         },
@@ -1122,10 +1186,10 @@
         "weaver/PropertyChanged.Fody.xcf"
       ]
     },
-    "Syncfusion.Licensing/18.2.0.55": {
-      "sha512": "uRj2TsBly9Mv35iPsOGiyHnz0z2+jd4WvK+vCdty4jF+G64CglHChdexWXaUkMd9wqkYJfp8BlLthqn4ogiMBg==",
+    "Syncfusion.Licensing/18.2.0.56": {
+      "sha512": "mkvmHGQritR6c9KC77zP+smPFVuh8UkVLnS1vd+fYNneErvD7u54WNOT9Yqw3996pX7WNZOhOQPtsL8hNaVULA==",
       "type": "package",
-      "path": "syncfusion.licensing/18.2.0.55",
+      "path": "syncfusion.licensing/18.2.0.56",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1146,14 +1210,14 @@
         "lib/netstandard2.0/Syncfusion.Licensing.dll",
         "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.Licensing.dll",
         "lib/uap10.0/Syncfusion.Licensing.dll",
-        "syncfusion.licensing.18.2.0.55.nupkg.sha512",
+        "syncfusion.licensing.18.2.0.56.nupkg.sha512",
         "syncfusion.licensing.nuspec"
       ]
     },
-    "Syncfusion.Xamarin.Core/18.2.0.55": {
-      "sha512": "/lU79GxueAxpY9qt5zJ/morklmkuEzsNAz2YZF5jTAw8bmz8gw7wLEf2eB8//8S3EOPxRnprfy5jz20aXDQECg==",
+    "Syncfusion.Xamarin.Core/18.2.0.56": {
+      "sha512": "X00uHYgrfqv0Ga7PyhefBWa1WmREhtqoVt5lufJHFAkeMR+juBI7qnLcHisWXuJbrWUh85Szy+veYnNPWVc8lA==",
       "type": "package",
-      "path": "syncfusion.xamarin.core/18.2.0.55",
+      "path": "syncfusion.xamarin.core/18.2.0.56",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1178,7 +1242,7 @@
         "lib/uap10.0/Syncfusion.Core.XForms.UWP/TILRenderer/ToggleIcons/ToggleVisibleIcon.xaml",
         "lib/uap10.0/Syncfusion.Core.XForms.dll",
         "lib/uap10.0/Syncfusion.Core.XForms.xml",
-        "syncfusion.xamarin.core.18.2.0.55.nupkg.sha512",
+        "syncfusion.xamarin.core.18.2.0.56.nupkg.sha512",
         "syncfusion.xamarin.core.nuspec"
       ]
     },
@@ -1311,6 +1375,39 @@
         "lib/uap10.0/Syncfusion.SfPicker.XForms.dll",
         "syncfusion.xamarin.sfpicker.18.2.0.55.nupkg.sha512",
         "syncfusion.xamarin.sfpicker.nuspec"
+      ]
+    },
+    "Syncfusion.Xamarin.SfPopupLayout/18.2.0.56": {
+      "sha512": "9KKyKK4Oc39kB05y2QoNnbfops7aXZD8rQA8x0uRRygXpua7EAMuMxbcQGCEhXkQTl5PZTP5cO7pkIeSlLd6GQ==",
+      "type": "package",
+      "path": "syncfusion.xamarin.sfpopuplayout/18.2.0.56",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.Android.dll",
+        "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/MonoAndroid10/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.iOS.dll",
+        "lib/Xamarin.iOS10/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/netstandard2.0/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/netstandard2.0/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81/Syncfusion.SfPopupLayout.XForms.xml",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Properties/Syncfusion.SfPopupLayout.XForms.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_dark_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_light_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_uwp_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_dark_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_light_theme_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.UWP/Syncfusion.SfPopupLayout.XForms.UWP/Resources/popup_forms_uwp_close_icon.png",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.dll",
+        "lib/uap10.0/Syncfusion.SfPopupLayout.XForms.xml",
+        "syncfusion.xamarin.sfpopuplayout.18.2.0.56.nupkg.sha512",
+        "syncfusion.xamarin.sfpopuplayout.nuspec"
       ]
     },
     "Xamarin.Essentials/1.5.3.2": {

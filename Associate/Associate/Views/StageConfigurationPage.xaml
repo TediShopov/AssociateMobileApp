@@ -6,7 +6,8 @@
              mc:Ignorable="d"
               xmlns:converters="clr-namespace:Associate.Services.Converters"
              x:Class="Associate.Views.StageConfigurationPage"
-             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms">
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Pickers;assembly=Syncfusion.SfPicker.XForms"
+              xmlns:sfPopup="clr-namespace:Syncfusion.XForms.PopupLayout;assembly=Syncfusion.SfPopupLayout.XForms">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:StringToTimeSpanConverter x:Key="StringToTimeSpan" />
@@ -28,6 +29,36 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+            <sfPopup:SfPopupLayout x:Name="popupLayout" >
+                <sfPopup:SfPopupLayout.PopupView>
+                    <sfPopup:PopupView ShowCloseButton="True">
+                        <sfPopup:PopupView.HeaderTemplate>
+                            <DataTemplate>
+                                <Label Text="Choose Stage Name" 
+                               FontAttributes="Bold"
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               />
+                            </DataTemplate>
+                        </sfPopup:PopupView.HeaderTemplate>
+                        <sfPopup:PopupView.ContentTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Entry x:Name="stageName"  Placeholder="Stage name goes here!"></Entry>
+                                <Button    Text="Add Stage" 
+                                 Command="{Binding AddStageDetailCom}"
+                                 CommandParameter="{Binding Source={x:Reference stageName},
+         Path=Text}"
+               VerticalOptions="Start" HorizontalOptions="FillAndExpand"
+               />
+                                </StackLayout>
+                            </DataTemplate>
+                        </sfPopup:PopupView.ContentTemplate>
+                    </sfPopup:PopupView>
+                </sfPopup:SfPopupLayout.PopupView>
+              
+            </sfPopup:SfPopupLayout>
             <syncfusion:SfTimePicker x:Name="timePicker"
                                  PickerMode="Dialog"
                                  HeaderText = "How much time will each player have to guess words?"
@@ -42,7 +73,7 @@
                     </StackLayout>
                 </syncfusion:SfTimePicker.FooterView>
             </syncfusion:SfTimePicker>
-            <Button Text="AddStage" Command="{Binding AddStageDetailCom}"></Button>
+            <Button Text="AddStage" Clicked="AddNewStageButton_Clicked" ></Button>
                 <Button Text="Go to next" Clicked="GoToChooseWinningConditionButon_Clicked"></Button>
             </StackLayout>
             

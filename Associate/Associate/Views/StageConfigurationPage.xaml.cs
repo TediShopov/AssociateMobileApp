@@ -16,7 +16,7 @@ namespace Associate.Views
     {
 
         private Button selectedButton=null;
-        private string TimeToChange = null;
+        private string TimeToChange = "00:00:01";
         public StageConfigurationPage()
         {
             ViewModelLocator.GameCreationViewModel.InitializeDefaultStage();
@@ -58,6 +58,12 @@ namespace Associate.Views
         private void SetButton_Clicked(object sender, EventArgs e)
         {
             this.selectedButton.Text = this.TimeToChange;
+            this.timePicker.IsOpen = false;
+        }
+
+        private void AddNewStageButton_Clicked(object sender, EventArgs e)
+        {
+            this.popupLayout.Show();
         }
     }
 }
