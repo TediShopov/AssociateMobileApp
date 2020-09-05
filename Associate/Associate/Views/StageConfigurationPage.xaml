@@ -13,25 +13,36 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        
-            <StackLayout>
-                <CollectionView ItemsSource="{Binding StagesDetails}" >
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <FlexLayout Direction="Row"  JustifyContent="SpaceBetween">
-                                <Label Text="{Binding Name}" FontSize="Medium" ></Label>
+
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding StagesDetails}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <FlexLayout Direction="Row"  JustifyContent="SpaceBetween">
+                            <Label Text="{Binding Name}" FontSize="Medium" ></Label>
                             <Switch IsToggled="{Binding SkippableWords}" />
-                            <Button Text="{Binding TimePerPlayer,Mode=TwoWay,Converter={StaticResource StringToTimeSpan}}" BackgroundColor="Bisque" Clicked="OpenTimerButton_Clicked"></Button>
-                               
-                            </FlexLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                    
-                </CollectionView>
-                <syncfusion:SfTimePicker x:Name="timePicker"
+                            <Button Text="{Binding TimePerPlayer,Mode=TwoWay,Converter={StaticResource StringToTimeSpan}}" BackgroundColor="Bisque" CommandParameter="{Binding .}" Clicked="OpenTimerButton_Clicked"></Button>
+
+                        </FlexLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+            <syncfusion:SfTimePicker x:Name="timePicker"
                                  PickerMode="Dialog"
-                                         />
-                <Button Text="AddStage" Command="{Binding AddStageDetailCom}"></Button>
+                                 HeaderText = "How much time will each player have to guess words?"
+                                    
+                                 Time="0:1:0"        
+                                 ShowFooter="True"
+                                      >
+                <syncfusion:SfTimePicker.FooterView>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                        <Button Text="Cancel" FontSize="Medium" Clicked="CancelButton_Clicked"></Button>
+                        <Button Text="Set" FontSize="Medium" Clicked="SetButton_Clicked" />
+                    </StackLayout>
+                </syncfusion:SfTimePicker.FooterView>
+            </syncfusion:SfTimePicker>
+            <Button Text="AddStage" Command="{Binding AddStageDetailCom}"></Button>
                 <Button Text="Go to next" Clicked="GoToChooseWinningConditionButon_Clicked"></Button>
             </StackLayout>
             

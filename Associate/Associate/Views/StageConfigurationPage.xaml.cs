@@ -16,20 +16,22 @@ namespace Associate.Views
     {
 
         private Button selectedButton=null;
+        private string TimeToChange = null;
         public StageConfigurationPage()
         {
             ViewModelLocator.GameCreationViewModel.InitializeDefaultStage();
             BindingContext = ViewModelLocator.GameCreationViewModel;
             InitializeComponent();
+          //  this.timePicker.OkCommand = ViewModelLocator.GameCreationViewModel.ChangeStageDetailsTimeCom.Execute(this.timePicker.);
         }
 
        
 
-        private void OpenTimerButton_Clicked(object sender, EventArgs e)
-        
+        private void OpenTimerButton_Clicked(object sender, EventArgs e)        
         {
             this.selectedButton=(Button)sender;
             this.timePicker.IsOpen = true;
+          //  ViewModelLocator.GameCreationViewModel.ChangeTargetStageForChangingTimePerPlayerCom.Execute(selectedButton.CommandParameter);
             this.timePicker.TimeSelected += TimePicker_TimeSelected;
         }
 
@@ -37,8 +39,8 @@ namespace Associate.Views
         {
             var b = sender;
             var a = e.NewValue;
-            this.selectedButton.Text=e.NewValue.ToString();
-            
+            this.TimeToChange = e.NewValue.ToString();
+
 
         }
 
@@ -48,6 +50,14 @@ namespace Associate.Views
             await this.Navigation.PushAsync(new WordEnterAndWinningConditionOptionsPage());
         }
 
-   
+        private void CancelButton_Clicked(object sender, EventArgs e)
+        {
+            this.timePicker.IsOpen = false;
+        }
+
+        private void SetButton_Clicked(object sender, EventArgs e)
+        {
+            this.selectedButton.Text = this.TimeToChange;
+        }
     }
 }

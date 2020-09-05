@@ -20,7 +20,7 @@
                
                 
             </Button>
-            <Button Text="Guess Word"  Command="{Binding GuessWordCommand}">
+            <Button Text="Guess Word" IsVisible="{Binding GuessWordButtonVisible}"  Command="{Binding GuessWordCommand}">
                 
             </Button>
             <Button Text="Next Round" IsVisible="{Binding NextRoundButtonVisible}" Command="{Binding GoToNextRoundCommand}">

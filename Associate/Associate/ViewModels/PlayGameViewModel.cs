@@ -14,8 +14,6 @@ namespace Associate.ViewModels
 {
     public class PlayGameViewModel : INotifyPropertyChanged
     {
-
-
         public event PropertyChangedEventHandler PropertyChanged;
         public PlayGameViewModel(Game game)
         {
@@ -30,18 +28,11 @@ namespace Associate.ViewModels
             this.StartRoundTimerCommand = new Command(StartRoundTimer);
             this.GuessWordCommand = new Command(GuessWord);
 
-
             //Butttons and Labels Init
             this.WordsGuessedThisRound = 0;
             this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
             this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
-            this.StartRoundTimerButtonVisible = true;
-            this.NextStageButtonVisible = false;
-            this.NextRoundButtonVisible = false;
-            this.EndGameButtonVisible = false;
-
-
-
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer");
         }
 
         private void SetUpNextPlayerRound()
@@ -53,7 +44,6 @@ namespace Associate.ViewModels
         }
 
         public Game Game { get; set; }
-
         public int WordsGuessedThisRound { get; set; }
 
         public string DisplayTimeRemainingString { get; set; }
@@ -64,6 +54,7 @@ namespace Associate.ViewModels
         public bool StartRoundTimerButtonVisible { get; set; }
         public bool EndGameButtonVisible { get; set; }
         public bool NextStageButtonVisible { get; set; }
+        public bool GuessWordButtonVisible { get; set; }
 
         public bool NextRoundButtonVisible { get; set; }
         public ICommand GoToNextRoundCommand { get; set; }
@@ -79,7 +70,7 @@ namespace Associate.ViewModels
             SetUpNextPlayerRound();
             this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
             this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
-            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer");
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer","GuessWord");
         }
 
         public void GoToNextRound()
@@ -88,7 +79,7 @@ namespace Associate.ViewModels
             SetUpNextPlayerRound();
             this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
             this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
-            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer");
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer","GuessWord");
         }
         public void GuessWord()
         {
@@ -108,7 +99,7 @@ namespace Associate.ViewModels
         {
             this.Game.CurrentStage.CurrentRound.RoundTimer.StartTimer();
             this.WordToGuess = this.Game.CurrentStage.GiveOutNewWordToGuess();
-            //ТОДО
+            MakeButtonsIsVisiblePropertyTrueByName("GuessWord");
         }
 
         public void StopRoundTimer()
@@ -163,8 +154,5 @@ namespace Associate.ViewModels
            
         }
 
-        
-
-        
     }
 }

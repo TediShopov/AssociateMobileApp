@@ -1,6 +1,7 @@
 ﻿using Associate.Models;
 using Associate.Models.Interfaces;
 using Syncfusion.DataSource.Extensions;
+using Syncfusion.XForms.Pickers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,23 +16,8 @@ namespace Associate.ViewModels
     public class GameCreationViewModel : INotifyPropertyChanged
     {
 
-        //private class TeamViewModel :  INotifyPropertyChanged
-        //{
-        //    public event PropertyChangedEventHandler PropertyChanged;
-        //    public List<IPlayer> Members { get; set ; }
-        //    public string Name { get ; set ; }
-
-        //}
-
-        //private class PlayerViewModel :  INotifyPropertyChanged
-        //{
-        //    public event PropertyChangedEventHandler PropertyChanged;
-
-        //    public string Name { get; set; }
-
-        //}
-
-        public class StageDetails : INotifyPropertyChanged
+       
+        public  class StageDetails : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
             public StageDetails(string name, TimeSpan timePerPlayer)
@@ -72,18 +58,16 @@ namespace Associate.ViewModels
         }
 
 
-
-
-
-
         public GameCreationViewModel()
         {
 
-            this.AddTeam = new Command(AddTeamToCollection);
-            this.AddStageDetailCom = new Command(AddStageDetail);
-            this.InitializePlayerOrderCom = new Command(InitializePlayerOrder);
-
             this.Teams = new ObservableCollection<ITeam>();
+            this.StagesDetails = new ObservableCollection<StageDetails>();
+
+            #region Adding test Teams
+
+
+
             var teamOne = new Team("TeamOne");
             teamOne.Members.Add(new Player("Gosho"));
             teamOne.Members.Add(new Player("Pesho"));
@@ -92,21 +76,43 @@ namespace Associate.ViewModels
             teamTwo.Members.Add(new Player("Ivan"));
             teamTwo.Members.Add(new Player("Ivanica"));
 
-
-
-            this.StagesDetails = new ObservableCollection<StageDetails>();
-
-
             Teams.Add(teamOne);
             Teams.Add(teamTwo);
+            #endregion
 
+
+            this.AddTeam = new Command(AddTeamToCollection);
+           
+            this.AddStageDetailCom = new Command(AddStageDetail);
+            this.InitializePlayerOrderCom = new Command(InitializePlayerOrder);
+
+
+           
+
+            #region Populating Winconditons
             this.WinningConditions = new List<WinningConditionWithName>();
             this.WinningConditions.Add(new WinningConditionWithName(new MostWordsGuessedWinningCondition()));
             this.WinningConditions.Add(new WinningConditionWithName("Different Points Each Stage", new PredeterminedPointsPerStageWinningCondition()));
+            #endregion
 
         }
 
+        private void ChangeTargetStageForChangingTimePerPlayer(object obj)
+        {
+            var stageDetail = (StageDetails)obj;
+            this.StageDetailTarget = stageDetail;
+        }
+
+        private void ChangeStageDetailsTime(object arg)
+        {
+            var timeChangedArgs = (EventArgs)arg;
+            var a = 3;
+           // this.StageDetailTarget.TimePerPlayer = new TimeSpan(timeChanedArgs.NewValue);
+        }
+
         public IPlayerOrder PlayerOrder { get; set; }
+
+        public StageDetails StageDetailTarget { get; set; }
 
         public WinningConditionWithName SelectedWinnindCondition { get; set; }
         
@@ -192,6 +198,10 @@ namespace Associate.ViewModels
 
         public ICommand AddTeam { get; set; }
         public ICommand AddStageDetailCom { get; set; }
+
+        public ICommand StageTimePickerAcceptCommand { get; set; }
+
+        public ICommand StageTimePickerCancelCommand { get; set; }
 
 
         public ICommand InitializePlayerOrderCom { get; set; }
