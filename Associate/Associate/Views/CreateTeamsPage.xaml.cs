@@ -22,8 +22,23 @@ namespace Associate.Views
 
         private async void  StageConfigurationButton_Clicked(object sender, EventArgs e)
         {
-            ViewModelLocator.GameCreationViewModel.CreateTeams();
-            await this.Navigation.PushAsync(new InitializePlayerOrderPage());
+
+             var repeatingTeamNames=ViewModelLocator.GameCreationViewModel.GetRepeatingTeamNamesIfAny();
+            var repeatingPlayerNames= ViewModelLocator.GameCreationViewModel.GetRepeatingPlayerNamesIfAny();
+            if (repeatingPlayerNames.Count==0 && repeatingTeamNames.Count==0)
+            {
+                ViewModelLocator.GameCreationViewModel.CreateTeams();
+                await this.Navigation.PushAsync(new InitializePlayerOrderPage());
+            }
+            else
+            {
+                foreach (var collectionView in this.Accordion.Children)
+                {
+                    var col = (CollectionView)collectionView;
+                    
+                    var row = collectionView.Parent;
+                }
+            }
         }
     }
 }

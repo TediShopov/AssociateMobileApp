@@ -1,25 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage x:Name="page" xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Accordion;assembly=Syncfusion.Expander.XForms"
              mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:Associate.ViewModels"
              x:Class="Associate.Views.CreateTeamsPage"
              NavigationPage.HasNavigationBar="false"
+             xmlns:behavior="clr-namespace:Associate.Behaviors"
              >
-   
+    
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-            <syncfusion:SfAccordion x:Name="Accordion" Grid.Row="1" BindableLayout.ItemsSource="{Binding Teams}" >
+            <syncfusion:SfAccordion  x:Name="Accordion"  Grid.Row="1" BindableLayout.ItemsSource="{Binding Teams}" >
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <syncfusion:AccordionItem>
                             <syncfusion:AccordionItem.Header>
                                 <Grid>
-                                    <Entry Text="{Binding Name,Mode=TwoWay}" FontSize="Title"/>
-                                </Grid>
+                                        <Entry Text="{Binding Name,Mode=TwoWay}" FontSize="Title" >
+                                            <Entry.Behaviors>
+                                                <behavior:EntryIsUniqueValidationBehavior  Collection="{Binding Path=BindingContext.Teams, Source={x:Reference page}}" 
+                                                                                       ItemSpacing="2"   
+                                                                                          />
+                                            </Entry.Behaviors>
+                                        </Entry>
+                                    </Grid>
                             </syncfusion:AccordionItem.Header>
                             <syncfusion:AccordionItem.Content>
 

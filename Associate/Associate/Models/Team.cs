@@ -28,7 +28,9 @@ namespace Associate.Models
             return listOfGuessedWords;
         }
 
-       public Dictionary<IStage, List<string>> GuessedWordsPerStage {
+       
+
+        public Dictionary<IStage, List<string>> GuessedWordsPerStage {
             get 
             {
                 Dictionary<IStage, List<string>> ret = new Dictionary<IStage, List<string>>();

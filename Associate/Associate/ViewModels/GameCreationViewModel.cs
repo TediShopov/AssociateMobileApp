@@ -137,8 +137,8 @@ namespace Associate.ViewModels
         {
             var a = this.Teams;
             var teamOne = new Team("TeamOne");
-            teamOne.Members.Add(new Player("Gosho"));
-            teamOne.Members.Add(new Player("Pesho"));
+            teamOne.Members.Add(new Player("PlayerOne"));
+            teamOne.Members.Add(new Player("PlayerTwo"));
             this.Teams.Add(teamOne);
             
         }
@@ -168,19 +168,50 @@ namespace Associate.ViewModels
             return listOfGameStage;
         }
 
-        public void CreateTeams() 
+        public void CreateTeams()
         {
+
             var teamList = new List<ITeam>();
-            foreach (var team in this.Teams)
-            {
-                var teamToAdd=new Team(team.Name);
-                foreach (var member in team.Members)
+                foreach (var team in this.Teams)
                 {
-                    teamToAdd.Members.Add(new Player(member.Name));
+                    var teamToAdd = new Team(team.Name);
+                    foreach (var member in team.Members)
+                    {
+                        teamToAdd.Members.Add(new Player(member.Name));
+                    }
+                    teamList.Add(teamToAdd);
                 }
-                teamList.Add(teamToAdd);
-            }
-            this.gameTeams = new List<ITeam>(teamList);
+                this.gameTeams = new List<ITeam>(teamList);
+
+          
+
+
+        }
+
+        public List<string> GetRepeatingTeamNamesIfAny()
+        {
+           
+            
+            var repeatingTeamNames = this.Teams.GroupBy(x => x.Name)
+                 .Where(g => g.Count() > 1)
+                 .Select(y => y.Key)
+                 .ToList();
+
+            return repeatingTeamNames;
+
+
+        }
+
+
+        public List<string> GetRepeatingPlayerNamesIfAny()
+        {
+            var repeatingPlayerNames = this.Teams.SelectMany(x => x.Members)
+                .GroupBy(x => x.Name)
+            .Where(g => g.Count() > 1)
+            .Select(y => y.Key)
+            .ToList()
+            ;
+           return repeatingPlayerNames;
         }
 
         public ICommand AddTeam { get; set; }

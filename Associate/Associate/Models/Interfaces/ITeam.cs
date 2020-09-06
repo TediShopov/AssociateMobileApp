@@ -9,6 +9,8 @@ namespace Associate.Models.Interfaces
         List<IPlayer> Members { get; set; }
          string Name { get; set; }
 
+       
+
         Dictionary<IStage, List<string>> GuessedWordsPerStage { get; }
         List<string> GuessedWordsForStage(IStage stage);
 
