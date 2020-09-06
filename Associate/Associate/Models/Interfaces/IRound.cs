@@ -7,6 +7,11 @@ namespace Associate.Models.Interfaces
     public interface IRound
     {
         IPlayer CurrentPlayer { get; }
-        IRoundTimer RoundTimer { get; }     
+        IRoundTimer RoundTimer { get; }
+
+         bool CanSkipWord { get; }
+
+        void ConsumeOneSkip();
+
     }
 }

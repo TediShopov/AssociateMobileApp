@@ -1,6 +1,7 @@
 ﻿using Associate.Models.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Associate.Models
@@ -24,7 +25,7 @@ namespace Associate.Models
             this.playerOrder = playerOrder;
             this.TimePerPlayer = timePerPlayer;
         }
-       
+        public int SkipsPerRound { get; set; }
         public IRound CurrentRound { get { return currentRound; } }
 
         public IPlayerOrder playerOrder { get ; set ; }
@@ -49,7 +50,7 @@ namespace Associate.Models
         {
             if (this.playerOrder!=null)
             {
-                this.currentRound = new Round(playerOrder.GoToNextPlayer(), this.TimePerPlayer,this);
+                this.currentRound = new Round(playerOrder.GoToNextPlayer(), this.TimePerPlayer,this,this.SkipsPerRound);
             }
             else
             {
@@ -67,6 +68,29 @@ namespace Associate.Models
                 }
             }
            
+        }
+
+        public bool SkipWord() 
+        {
+            bool skippedWord = false;
+            if (this.CurrentRound.CanSkipWord)
+            {
+                skippedWord = true;
+                this.CurrentRound.ConsumeOneSkip();
+                Random random = new Random();
+                var randomAmountOfWordsToSkip = random.Next(0, this.RemainingWords.Count);
+                var listOfDequedWords = new List<string>();
+                for (int i = 0; i < randomAmountOfWordsToSkip; i++)
+                {
+                    listOfDequedWords.Add(this.RemainingWords.Dequeue());
+                }
+                listOfDequedWords = listOfDequedWords.OrderBy(a => Guid.NewGuid()).ToList();
+                foreach (var word in listOfDequedWords)
+                {
+                    this.RemainingWords.Enqueue(word);
+                }
+            }
+            return skippedWord;
         }
 
         

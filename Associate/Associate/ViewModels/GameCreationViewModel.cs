@@ -20,16 +20,16 @@ namespace Associate.ViewModels
         public  class StageDetails : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
-            public StageDetails(string name, TimeSpan timePerPlayer)
+            public StageDetails(string name, TimeSpan timePerPlayer,int skipsPerRound=0)
             {
                 this.Name = name;
                 this.TimePerPlayer = timePerPlayer;
-                this.SkippableWords = false;
+                this.SkipsPerRound = skipsPerRound;
             }
 
             
 
-            public bool SkippableWords { get; set; }
+            public int SkipsPerRound { get; set; }
             public string Name { get; set; }
             public TimeSpan TimePerPlayer { get; set; }
         }
@@ -111,7 +111,6 @@ namespace Associate.ViewModels
 
 
         public int WordsToCreatePerPlayer { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void InitializePlayerOrder() 
@@ -163,6 +162,7 @@ namespace Associate.ViewModels
             foreach (var stageDetails in this.StagesDetails)
             {
                 var stage = new Stage(unshuffledWords, this.PlayerOrder, stageDetails.TimePerPlayer);
+                stage.SkipsPerRound = stageDetails.SkipsPerRound;
                 listOfGameStage.Add(stage);
             }
             return listOfGameStage;

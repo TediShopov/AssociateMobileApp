@@ -22,6 +22,8 @@ namespace Associate.Models.Interfaces
         void SetUpPlayerRound();
         string GiveOutNewWordToGuess();
 
+        bool SkipWord();
+
 
 
     }

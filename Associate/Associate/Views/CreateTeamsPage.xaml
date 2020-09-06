@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Accordion;assembly=Syncfusion.Expander.XForms"
+             xmlns:interfaces="clr-namespace:Associate.Models"
              mc:Ignorable="d"
              xmlns:viewModels="clr-namespace:Associate.ViewModels"
              x:Class="Associate.Views.CreateTeamsPage"
@@ -22,8 +24,10 @@
                                 <Grid>
                                         <Entry Text="{Binding Name,Mode=TwoWay}" FontSize="Title" >
                                             <Entry.Behaviors>
-                                                <behavior:EntryIsUniqueValidationBehavior  Collection="{Binding Path=BindingContext.Teams, Source={x:Reference page}}" 
-                                                                                       ItemSpacing="2"   
+                                                <behavior:TeamEntryIsUniqueValidationBehavior 
+                                                    
+                                                    Collection="{Binding Path=BindingContext.Teams, Source={x:Reference page}}" 
+                                                                                      
                                                                                           />
                                             </Entry.Behaviors>
                                         </Entry>
@@ -37,7 +41,9 @@
                                         <DataTemplate>
 
                                             <Entry Text="{Binding Name,Mode=TwoWay}" FontSize="Medium">
-
+                                                    <Entry.Behaviors>
+                                                        <behavior:PlayerNameEntryValidatonBehaviour Collection="{Binding Path=BindingContext.Teams, Source={x:Reference page}}"></behavior:PlayerNameEntryValidatonBehaviour>
+                                                    </Entry.Behaviors>
                                             </Entry>
 
 

@@ -23,6 +23,7 @@ namespace Associate.ViewModels
             SetUpNextPlayerRound();
 
             //Command init
+            this.SkipWordCommand = new Command(SkipWord);
             this.GoToNextRoundCommand = new Command(GoToNextRound);
             this.GoToNextStageCommand = new Command(GoToNextStage);
             this.StartRoundTimerCommand = new Command(StartRoundTimer);
@@ -51,6 +52,8 @@ namespace Associate.ViewModels
         public string CurrentPlayerName { get; set; }
 
         public string WordToGuess { get; set; }
+        
+        public bool  SkipWordButtonVisible { get; set; }
         public bool StartRoundTimerButtonVisible { get; set; }
         public bool EndGameButtonVisible { get; set; }
         public bool NextStageButtonVisible { get; set; }
@@ -64,13 +67,15 @@ namespace Associate.ViewModels
 
         public ICommand GuessWordCommand { get; set; }
 
+        public ICommand SkipWordCommand { get; set; }
+
         public void GoToNextStage()
         {
             this.Game.GoToNextStage();
             SetUpNextPlayerRound();
             this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
             this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
-            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer","GuessWord");
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer","GuessWord","SkipWord");
         }
 
         public void GoToNextRound()
@@ -79,7 +84,7 @@ namespace Associate.ViewModels
             SetUpNextPlayerRound();
             this.CurrentPlayerName = this.Game.CurrentStage.CurrentRound.CurrentPlayer.Name;
             this.DisplayTimeRemainingString = this.Game.CurrentStage.CurrentRound.RoundTimer.TimeLeft.ToString();
-            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer","GuessWord");
+            MakeButtonsIsVisiblePropertyTrueByName("StartRoundTimer","GuessWord","SkipWord");
         }
         public void GuessWord()
         {
@@ -95,11 +100,22 @@ namespace Associate.ViewModels
             }
         }
 
+
+        public void SkipWord()
+        {
+            if (this.Game.CurrentStage.SkipWord())
+            {
+                this.WordToGuess = this.Game.CurrentStage.GiveOutNewWordToGuess();
+            }
+           
+           
+        }
+
         public void StartRoundTimer()
         {
             this.Game.CurrentStage.CurrentRound.RoundTimer.StartTimer();
             this.WordToGuess = this.Game.CurrentStage.GiveOutNewWordToGuess();
-            MakeButtonsIsVisiblePropertyTrueByName("GuessWord");
+            MakeButtonsIsVisiblePropertyTrueByName("GuessWord","SkipWord");
         }
 
         public void StopRoundTimer()

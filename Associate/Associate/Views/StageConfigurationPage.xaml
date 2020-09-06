@@ -21,7 +21,10 @@
                     <DataTemplate>
                         <FlexLayout Direction="Row"  JustifyContent="SpaceBetween">
                             <Label Text="{Binding Name}" FontSize="Medium" ></Label>
-                            <Switch IsToggled="{Binding SkippableWords}" />
+                            <Label Text="{Binding SkipsPerRound}">
+                                
+                            </Label>
+                            <Stepper Minimum="0" Maximum="10" Value="{Binding SkipsPerRound}" Increment="1" />
                             <Button Text="{Binding TimePerPlayer,Mode=TwoWay,Converter={StaticResource StringToTimeSpan}}" BackgroundColor="Bisque" CommandParameter="{Binding .}" Clicked="OpenTimerButton_Clicked"></Button>
 
                         </FlexLayout>

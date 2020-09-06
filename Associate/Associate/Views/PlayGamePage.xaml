@@ -23,6 +23,10 @@
             <Button Text="Guess Word" IsVisible="{Binding GuessWordButtonVisible}"  Command="{Binding GuessWordCommand}">
                 
             </Button>
+
+            <Button Text="Skip Word" IsVisible="{Binding SkipWordButtonVisible}"  Command="{Binding SkipWordCommand}">
+
+            </Button>
             <Button Text="Next Round" IsVisible="{Binding NextRoundButtonVisible}" Command="{Binding GoToNextRoundCommand}">
                 
             </Button>
