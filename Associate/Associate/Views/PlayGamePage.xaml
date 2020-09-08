@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Associate.Views.PlayGamePage">
+             x:Class="Associate.Views.PlayGamePage"
+            >
     <ContentPage.Content>
         <StackLayout>
             <Label Text="{Binding CurrentPlayerName}" HorizontalOptions="Start" FontSize="Default">
@@ -33,7 +34,7 @@
             <Button Text="Next Stage" IsVisible="{Binding NextStageButtonVisible}" Command="{Binding GoToNextStageCommand}">
 
             </Button>
-            <Button IsVisible="{Binding EndGameButtonVisible}" Text="End Game">
+            <Button IsVisible="{Binding EndGameButtonVisible}" Clicked="EndGameButton_Clicked" Text="End Game">
 
             </Button>
             

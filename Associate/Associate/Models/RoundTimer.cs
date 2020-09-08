@@ -71,7 +71,8 @@ namespace Associate.Models
             timer.Stop();
             timer.Enabled = false;
             this.isOver = true;
-            this.OnTimerStoped.Invoke();
+            this.OnTimerStoped?.Invoke();
+           
         }
     }
 }

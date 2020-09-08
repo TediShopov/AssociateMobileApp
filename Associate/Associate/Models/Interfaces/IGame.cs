@@ -7,7 +7,7 @@ namespace Associate.Models.Interfaces
     public interface IGame
     {
         IStage CurrentStage { get; }
-        IWinningCondition winningCondition { get; set; }
+        IWinningCondition WinningCondition { get; set; }
 
         //Stage might be IEnumrator<Stage> -- MoveNext() method and current;
         List<IStage> Stages { get; }

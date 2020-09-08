@@ -19,7 +19,7 @@ namespace Associate.Models
             this.Stages = new List<IStage>();
             this.stageEnumerator = this.Stages.GetEnumerator();
             this.Teams = new List<ITeam>();
-            this.winningCondition =new MostWordsGuessedWinningCondition(this.Stages);
+            this.WinningCondition =new MostWordsGuessedWinningCondition();
             
         }
         public Game(IWinningCondition winningCondition)
@@ -28,12 +28,26 @@ namespace Associate.Models
             this.isFinished = false;
             this.Stages = new List<IStage>();
             this.Teams = new List<ITeam>();
-            this.winningCondition = winningCondition;
+            this.WinningCondition = winningCondition;
 
         }
 
         public IStage CurrentStage { get { return this.Stages[currentStageIndex]; } }
-        public IWinningCondition winningCondition { get; set; }
+
+        private IWinningCondition winningCondition;
+
+        public IWinningCondition WinningCondition
+        {
+            get {
+                
+                  winningCondition.Teams = this.Teams;
+                winningCondition.Stage = this.Stages;
+                return winningCondition;
+            }
+            set { winningCondition = value; }
+        }
+
+       
 
         public List<IStage> Stages { get; set; }
 

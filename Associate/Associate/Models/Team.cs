@@ -23,7 +23,13 @@ namespace Associate.Models
             List<string> listOfGuessedWords = new List<string>();
             foreach (var member in this.Members)
             {
-                listOfGuessedWords.AddRange(member.GuessedWordsPerStage[stage]);
+                var listOfWords = new List<string>();
+                member.GuessedWordsPerStage.TryGetValue(stage,out listOfWords);
+                if (listOfWords==null)
+                {
+                    listOfWords = new List<string>();
+                }
+                listOfGuessedWords.AddRange(listOfWords);
             }
             return listOfGuessedWords;
         }
@@ -42,7 +48,9 @@ namespace Associate.Models
                 {
                     foreach (var stage in member.GuessedWordsPerStage.Keys)
                     {
-                        ret[stage].AddRange(member.GuessedWordsPerStage[stage]);
+                        var listOfWords = new List<string>();
+                        member.GuessedWordsPerStage.TryGetValue(stage, out listOfWords);
+                        ret[stage].AddRange(listOfWords);
                     }
                 }
                 return ret;

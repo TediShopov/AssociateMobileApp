@@ -151,6 +151,7 @@ namespace Associate.ViewModels
         public Game CreateGame(List<string> unshuffledWords)
         {
             var game = new Game();
+            game.WinningCondition = this.SelectedWinnindCondition.WinningCondition;
             game.Stages = CreateGameStagesFromGameStageDetails(unshuffledWords);
             game.Teams = new List<ITeam>(this.Teams);
             return game;

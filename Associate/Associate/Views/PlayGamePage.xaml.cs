@@ -15,12 +15,20 @@ namespace Associate.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayGamePage : ContentPage
     {
+        private readonly Game game;
+
         public PlayGameViewModel playGameViewModel { get; set; }
         public PlayGamePage(Game game)
         {
             this.playGameViewModel = new PlayGameViewModel(game);
             BindingContext = this.playGameViewModel;
             InitializeComponent();
+            this.game = game;
+        }
+
+        private void EndGameButton_Clicked(object sender, EventArgs e)
+        {
+            this.Navigation.PushAsync(new TeamRankingPage(this.game));
         }
     }
 }

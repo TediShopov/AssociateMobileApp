@@ -29,9 +29,11 @@ namespace Associate.Tests
             //Arrange
             teamMock1.Setup(x => x.GuessedWordsForStage(mockStage1.Object)).Returns(new List<string>() { "aa", "bb", "cc" });
             teamMock2.Setup(x => x.GuessedWordsForStage(mockStage1.Object)).Returns(new List<string>() { "aaa", "bbb", "ccc", "асдасда" });
-            MostWordsGuessedWinningCondition mostWordsGuessed = new MostWordsGuessedWinningCondition(new List<IStage>() {mockStage1.Object });
+            MostWordsGuessedWinningCondition mostWordsGuessed = new MostWordsGuessedWinningCondition();
+            mostWordsGuessed.Stage = new List<IStage>() { mockStage1.Object };
+            mostWordsGuessed.Teams = new List<ITeam>() { teamMock1.Object, teamMock2.Object };
             //Act
-            var winner=mostWordsGuessed.GetWinner(new List<ITeam>() { teamMock1.Object, teamMock2.Object });
+            var winner=mostWordsGuessed.GetWinner();
 
             //Assert
             Assert.Equal(teamMock2.Object, winner);
@@ -59,9 +61,10 @@ namespace Associate.Tests
             pointsPerStage.Add(mockStage2.Object, 2);
 
             PredeterminedPointsPerStageWinningCondition mostWordsGuessed = new PredeterminedPointsPerStageWinningCondition(pointsPerStage);
+            mostWordsGuessed.Teams = new List<ITeam>() { teamMock1.Object, teamMock2.Object };
 
             //Act
-            var winner = mostWordsGuessed.GetWinner(new List<ITeam>() { teamMock1.Object, teamMock2.Object });
+            var winner = mostWordsGuessed.GetWinner();
 
             //Assert
             Assert.Equal(teamMock2.Object, winner);

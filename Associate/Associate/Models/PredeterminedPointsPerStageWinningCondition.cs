@@ -8,7 +8,8 @@ namespace Associate.Models
     public class PredeterminedPointsPerStageWinningCondition : IWinningCondition
     {
         private readonly Dictionary<IStage, int> pointsPerStage;
-
+        public List<IStage> Stage { get; set; }
+        public List<ITeam> Teams { get; set; }
         public PredeterminedPointsPerStageWinningCondition(Dictionary<IStage,int> pointsPerStage)
         {
             this.pointsPerStage = pointsPerStage;
@@ -18,11 +19,11 @@ namespace Associate.Models
         {
 
         }
-        public ITeam GetWinner(List<ITeam> teams)
+        public ITeam GetWinner()
         {
-            ITeam winningTeam=teams[0];
+            ITeam winningTeam=this.Teams[0];
             int winningTeamPoints = 0;
-            foreach (var team in teams)
+            foreach (var team in this.Teams)
             {
                 int teamPoints = this.TotalPointsForTeam(team);
                 if (teamPoints>winningTeamPoints)
